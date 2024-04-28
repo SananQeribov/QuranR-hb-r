@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "QuranRəhbər"
 include(":app")
- 
+include(":common")
+include(":data")
+include(":domain")
