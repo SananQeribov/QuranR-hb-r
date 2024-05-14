@@ -24,14 +24,7 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/navgition" />
 
-    <com.legalist.common.widgets.textviews.FontTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-
-        tools:ignore="MissingConstraints">
-
-    </com.legalist.common.widgets.textviews.FontTextView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

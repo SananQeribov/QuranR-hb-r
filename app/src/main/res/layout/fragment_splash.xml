@@ -16,6 +16,16 @@
             android:layout_height="150dp"
             android:layout_centerInParent="true"
             android:src="@drawable/mosque" />
+
+        <com.legalist.common.widgets.textviews.FontTextView
+            android:layout_width="113dp"
+            android:layout_height="34dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="450dp"
+
+            tools:ignore="MissingConstraints">
+
+        </com.legalist.common.widgets.textviews.FontTextView>
     </RelativeLayout>
 
 
