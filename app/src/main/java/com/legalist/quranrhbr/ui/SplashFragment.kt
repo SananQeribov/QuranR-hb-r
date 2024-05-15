@@ -22,6 +22,7 @@ class SplashFragment : Fragment() {
 
 
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
