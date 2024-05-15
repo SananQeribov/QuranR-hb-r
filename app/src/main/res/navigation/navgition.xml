@@ -3,16 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navgition"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.legalist.quranrhbr.ui.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" />
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.legalist.quranrhbr.ui.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        android:id="@+id/onboardingFragment"
+        android:name="com.legalist.quranrhbr.ui.OnboardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding" >
+        <action
+            android:id="@+id/action_onboardingFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.legalist.quranrhbr.ui.HomeFragment"
+        android:label="fragment_presentation"
+        tools:layout="@layout/fragment_presentation" />
 </navigation>
