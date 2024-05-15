@@ -22,7 +22,6 @@
             android:layout_height="34dp"
             android:layout_marginLeft="150dp"
             android:layout_marginTop="450dp"
-
             tools:ignore="MissingConstraints">
 
         </com.legalist.common.widgets.textviews.FontTextView>

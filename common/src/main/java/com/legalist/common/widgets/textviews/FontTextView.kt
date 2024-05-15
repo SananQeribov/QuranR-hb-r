@@ -29,11 +29,11 @@ class FontTextView : AppCompatTextView {
     }
 
     private fun setupAttrs(context: Context, attrs: AttributeSet?) {
-        // Metin rengi ve büyüklüğü ayarları
+
         setTextColor(Color.parseColor("#300759"))
         textSize = 20f
 
-        // Özelleştirilmiş metin oluşturma
+
         val text = "Quran App "
 
         val boldSpan = StyleSpan(Typeface.BOLD)

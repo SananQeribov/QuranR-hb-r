@@ -37,7 +37,7 @@ class BetterEditText : AppCompatEditText, TextView.OnEditorActionListener {
         val headlineTypeface: Typeface = Typeface.create("Urbanist", Typeface.BOLD)
         typeface = headlineTypeface
         val betterEditText = BetterEditText(context)
-        betterEditText.setCustomHeight(100)
+        betterEditText.setCustomHeight(56)
     }
 
     // Yüksekliği ayarlamak için bir metod
