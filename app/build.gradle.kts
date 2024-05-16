@@ -64,4 +64,8 @@ dependencies {
 
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation("com.tbuonomo:dotsindicator:4.3")
+
+    // splash screen
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
 }

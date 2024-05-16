@@ -22,12 +22,17 @@
         android:label="fragment_onboarding"
         tools:layout="@layout/fragment_onboarding" >
         <action
-            android:id="@+id/action_onboardingFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_onboardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.legalist.quranrhbr.ui.HomeFragment"
         android:label="fragment_presentation"
         tools:layout="@layout/fragment_presentation" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.legalist.quranrhbr.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>
