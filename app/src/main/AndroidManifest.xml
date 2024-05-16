@@ -25,3 +25,11 @@
     </application>
 
 </manifest>
+
+
+<!--Splash screen-->
+
+<!--     <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.app.SplashScreen"
+            android:exported="true">  -->

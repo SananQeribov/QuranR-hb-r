@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navgition"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/splashdefaultFragment">
 
     <fragment
         android:id="@+id/splashFragment"
@@ -35,4 +35,13 @@
         android:name="com.legalist.quranrhbr.ui.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/splashdefaultFragment"
+        android:name="com.legalist.quranrhbr.ui.SplashdefaultFragment"
+        android:label="fragment_splashdefault"
+        tools:layout="@layout/fragment_splashdefault" >
+        <action
+            android:id="@+id/action_splashdefaultFragment_to_splashFragment"
+            app:destination="@id/splashFragment" />
+    </fragment>
 </navigation>
