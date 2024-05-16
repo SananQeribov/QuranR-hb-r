@@ -57,6 +57,7 @@ class OnboardingFragment : Fragment() {
 
         nextButton.setOnClickListener {
             if (viewPager.currentItem < adapter.itemCount - 1) {
+
                 viewPager.currentItem += 1
             } else {
                 findNavController().navigate(R.id.action_onboardingFragment_to_homeFragment)
@@ -64,6 +65,9 @@ class OnboardingFragment : Fragment() {
         }
 
         skipTextView.setOnClickListener {
+
+
+
             findNavController().navigate(R.id.action_onboardingFragment_to_homeFragment)
         }
 

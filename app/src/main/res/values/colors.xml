@@ -3,10 +3,19 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="boldpurple">#300759</color>
-    <color name="Dot_indicator">#CD77F2</color>
+    <color name="Dot_indicator">#E1C8EC</color>
     <color name="background">#DAD0E1</color>
     <color name="selected_Dot_Color">#300759</color>
     <color name="skip_text">#646982</color>
+    <color name="backgroundPage">#F3F3F3</color>
+    <color name="TransWhite">#80FFFFFF</color>
+    <color name="Remember_me">#7E8A97</color>
+    <color name="Orange">#FF7622</color>
+    <color name="mealText_homepage">#A0A5BA</color>
+    <color name="card_restaurant_homepage">#181C2E</color>
+    <color name="home_spinner_text">#676767</color>
+    <color name="Recent_keyword">#32343E</color>
+    <color name="search_color">#F6F6F6</color>
 
 
 </resources>
