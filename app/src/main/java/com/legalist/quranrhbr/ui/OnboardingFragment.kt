@@ -60,7 +60,7 @@ class OnboardingFragment : Fragment() {
 
                 viewPager.currentItem += 1
             } else {
-                findNavController().navigate(R.id.action_onboardingFragment_to_homeFragment)
+                findNavController().navigate(R.id.action_onboardingFragment_to_loginFragment)
             }
         }
 
