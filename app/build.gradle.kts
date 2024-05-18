@@ -68,4 +68,8 @@ dependencies {
     // splash screen
     implementation("androidx.core:core-splashscreen:1.0.1")
 
+    // pin view OTP
+    implementation ("io.github.chaosleung:pinview:1.4.4")
+
+
 }
