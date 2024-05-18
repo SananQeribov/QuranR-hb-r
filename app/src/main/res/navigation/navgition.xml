@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navgition"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/splashdefaultFragment">
 
     <fragment
         android:id="@+id/splashFragment"
@@ -24,27 +24,24 @@
         <action
             android:id="@+id/action_onboardingFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_onboardingFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.legalist.quranrhbr.ui.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_signoutFragment"
-            app:destination="@id/signoutFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/signoutFragment"
-        android:name="com.legalist.quranrhbr.ui.SignoutFragment"
-        android:label="fragment_signout"
-        tools:layout="@layout/fragment_signout" />
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.legalist.quranrhbr.ui.HomeFragment"
         android:label="fragment_presentation"
         tools:layout="@layout/fragment_presentation" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.legalist.quranrhbr.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/splashdefaultFragment"
+        android:name="com.legalist.quranrhbr.ui.SplashdefaultFragment"
+        android:label="fragment_splashdefault"
+        tools:layout="@layout/fragment_splashdefault" >
+        <action
+            android:id="@+id/action_splashdefaultFragment_to_splashFragment"
+            app:destination="@id/splashFragment" />
+    </fragment>
 </navigation>

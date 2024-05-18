@@ -12,6 +12,9 @@
 
         <attr name="borderWidth" format="dimension" />
         <attr name="borderColor" format="dimension" />
+
+
+
     </declare-styleable>
 
 </resources>

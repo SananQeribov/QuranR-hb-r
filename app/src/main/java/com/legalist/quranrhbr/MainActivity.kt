@@ -1,6 +1,8 @@
 package com.legalist.quranrhbr
 
+import android.content.Intent
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -11,6 +13,11 @@ import com.legalist.quranrhbr.ui.HomeFragment
 import com.legalist.quranrhbr.ui.PrayertimeFragment
 import com.legalist.quranrhbr.ui.QuranFragment
 
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.legalist.quranrhbr.ui.LoginFragment
+import com.legalist.quranrhbr.ui.SplashdefaultFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -18,6 +25,8 @@ class MainActivity : AppCompatActivity() {
     var myAdapter: Adapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Thread.sleep(3000)
+//        installSplashScreen()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.bottomNav.setOnItemSelectedListener { menuitem ->
@@ -40,21 +49,8 @@ class MainActivity : AppCompatActivity() {
                     binding.bottomNav.isVisible = true
                     replaceFragment(PrayertimeFragment())
 
-                    true
-                }
-                else -> false
-            }
-
-        }
-        // replaceFragment(MapsFragment())
+        setContentView(R.layout.activity_main)
+    
 
     }
-    private fun replaceFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainerView, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
-
 }
-
