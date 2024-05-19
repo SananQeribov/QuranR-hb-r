@@ -5,7 +5,7 @@
         <item
             android:id="@+id/home"
 
-            android:icon="@drawable/book"
+            android:icon="@drawable/apple_icon"
             android:title=""
             app:showAsAction="ifRoom" />
 

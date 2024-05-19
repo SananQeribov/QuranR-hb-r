@@ -1,19 +1,14 @@
-package com.legalist.quranrhbr.viewpager
+package com.legalist.quranrhbr.ui.bottomMenu
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager2.widget.ViewPager2
 import com.legalist.quranrhbr.R
-import com.legalist.quranrhbr.adapter.Adapter
-import com.legalist.quranrhbr.databinding.FragmentNamazBinding
-import com.legalist.quranrhbr.databinding.FragmentSurahBinding
 
+class QuranFragment : Fragment() {
 
-class SurahFragment : Fragment() {
-private  lateinit var  binding: FragmentSurahBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,9 +20,8 @@ private  lateinit var  binding: FragmentSurahBinding
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentSurahBinding.inflate(inflater, container, false)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_quran, container, false)
     }
 
-      }
 
+}

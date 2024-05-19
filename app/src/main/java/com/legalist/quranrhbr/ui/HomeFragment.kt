@@ -15,12 +15,13 @@ private  lateinit var  main: ActivityMainBinding
         super.onCreate(savedInstanceState)
 
 
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPresentationBinding.bind(view)
-        main.bottomNav.isVisible = true
+        main.bottomNav.isVisible = isVisible
 
 
     }

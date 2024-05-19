@@ -1,4 +1,4 @@
-package com.legalist.domain
+package com.ders.domain
 
 import org.junit.Test
 

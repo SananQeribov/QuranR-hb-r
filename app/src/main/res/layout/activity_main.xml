@@ -29,8 +29,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:itemBackground="#C1A6CF"
-        android:visibility="visible"
+        app:itemBackground="@color/bottom_menu_item_background_color"
+        android:visibility="gone"
         android:background="#C1A6CF"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu" >

@@ -17,6 +17,7 @@
     <color name="home_spinner_text">#676767</color>
     <color name="Recent_keyword">#32343E</color>
     <color name="search_color">#F6F6F6</color>
+    <color name="bottom_menu_item_background_color">#C1A6CF</color>
 
 
 </resources>

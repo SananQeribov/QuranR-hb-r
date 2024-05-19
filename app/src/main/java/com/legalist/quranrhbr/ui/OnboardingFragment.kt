@@ -60,7 +60,7 @@ class OnboardingFragment : Fragment() {
 
                 viewPager.currentItem += 1
             } else {
-                findNavController().navigate(R.id.action_onboardingFragment_to_loginFragment)
+                findNavController().navigate(R.id.action_onboardingFragment_to_homeFragment)
             }
         }
 
@@ -68,7 +68,7 @@ class OnboardingFragment : Fragment() {
 
 
 
-            findNavController().navigate(R.id.action_onboardingFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_onboardingFragment_to_homeFragment)
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {

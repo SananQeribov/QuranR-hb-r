@@ -1,17 +1,19 @@
-package com.legalist.quranrhbr.ui
+package com.legalist.quranrhbr.ui.bottomMenu
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import androidx.core.view.isVisible
 import com.legalist.quranrhbr.R
-import com.legalist.quranrhbr.databinding.FragmentLoginBinding
+import com.legalist.quranrhbr.databinding.ActivityMainBinding
+import com.legalist.quranrhbr.databinding.FragmentPrayertimeBinding
 
 
-class LoginFragment : Fragment() {
-private lateinit var binding:FragmentLoginBinding
+
+class PrayertimeFragment : Fragment() {
+  private lateinit var binding:FragmentPrayertimeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,10 +25,8 @@ private lateinit var binding:FragmentLoginBinding
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding= FragmentLoginBinding.inflate(inflater, container, false)
-        binding.btnSignUp.setOnClickListener{
-            findNavController().navigate(R.id.action_loginFragment_to_signoutFragment)
-        }
+        binding = FragmentPrayertimeBinding.inflate(inflater, container, false)
+
         return  binding.root
     }
 
