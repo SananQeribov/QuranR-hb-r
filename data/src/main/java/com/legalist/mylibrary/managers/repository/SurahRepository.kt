@@ -1,6 +1,6 @@
 package com.legalist.mylibrary.managers.repository
 
-import androidx.lifecycle.LiveData
+
 import com.ders.domain.model.Surah
 import com.legalist.mylibrary.managers.api.ApiService
 

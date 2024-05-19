@@ -11,13 +11,11 @@ import com.legalist.quranrhbr.adapter.Adapter
 import com.legalist.quranrhbr.databinding.ActivityMainBinding
 import com.legalist.quranrhbr.ui.SurahFragment
 import com.legalist.quranrhbr.ui.bottomMenu.PrayertimeFragment
-import com.legalist.quranrhbr.ui.bottomMenu.QuranFragment
 import com.legalist.quranrhbr.ui.bottomMenu.SettingFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    var myViewPager2: ViewPager2? = null
-    var myAdapter: Adapter? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

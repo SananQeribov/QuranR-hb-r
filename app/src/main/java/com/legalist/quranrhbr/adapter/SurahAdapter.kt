@@ -14,7 +14,7 @@ import android.widget.Filter
 import android.widget.Filterable
 
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 class SurahAdapter(private val surahList: List<Surah>) :
     RecyclerView.Adapter<SurahAdapter.SurahViewHolder>(), Filterable {
