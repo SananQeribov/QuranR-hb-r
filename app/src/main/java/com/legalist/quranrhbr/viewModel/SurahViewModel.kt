@@ -26,4 +26,5 @@ class SurahViewModel : ViewModel() {
             _surahs.value = repository.getSurahs()
         }
     }
+    //adkahdkajdhkajhdkad
 }
