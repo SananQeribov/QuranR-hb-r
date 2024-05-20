@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.navigation.safeargs)
+    //id("com.android.application")
+    //id("com.google.gms.google-services")
 }
 
 android {
@@ -58,11 +60,17 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    
 
+   // implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    // Import the BoM for the Firebase platform
+    //implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+
+    // Add the dependency for the Realtime Database library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    //implementation("com.google.firebase:firebase-database")
     // viewpager and dotsIndicator
 
-    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation("androidx.viewpager2:viewpager2:1.1.0")
     implementation("com.tbuonomo:dotsindicator:4.3")
 
     // splash screen

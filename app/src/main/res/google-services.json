@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "262063828528",
+    "project_id": "surah-92e6b",
+    "storage_bucket": "surah-92e6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262063828528:android:12f1b68d1b2147147f07f5",
+        "android_client_info": {
+          "package_name": "com.legalist.quranrhbr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuD2m7ihMWUux-FbHEk6e2e5Rm9LtHJ5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
