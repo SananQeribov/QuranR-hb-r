@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SignoutFragment"
     android:background="#CD77F2"
 
 
@@ -12,8 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/backReturn"
@@ -51,17 +49,13 @@
             android:layout_width="match_parent"
             android:layout_height="570dp"
             app:cardCornerRadius="24dp"
-
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@color/background"
-
-                >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView3"

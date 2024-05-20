@@ -1,4 +1,4 @@
-package com.legalist.quranrhbr.ui
+package com.legalist.quranrhbr.ui.bottomMenu
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.legalist.quranrhbr.R
 
-
-class LoginFragment : Fragment() {
+class QuranFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +20,7 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        return inflater.inflate(R.layout.fragment_quran, container, false)
     }
 
 
