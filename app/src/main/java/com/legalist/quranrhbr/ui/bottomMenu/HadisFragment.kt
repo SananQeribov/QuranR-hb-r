@@ -5,11 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.legalist.quranrhbr.R
 
-class QuranFragment : Fragment() {
+import com.legalist.quranrhbr.databinding.FragmentHadisBinding
 
 
+class HadisFragment : Fragment() {
+   private lateinit var binding:FragmentHadisBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -20,7 +21,8 @@ class QuranFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quran, container, false)
+        binding = FragmentHadisBinding.inflate(inflater ,container, false)
+        return  binding.root
     }
 
 

@@ -1,4 +1,4 @@
-package com.legalist.quranrhbr.ui
+package com.legalist.quranrhbr.ui.bottomMenu
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

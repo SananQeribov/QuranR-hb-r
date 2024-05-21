@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/surahFragment"
-        android:name="com.legalist.quranrhbr.ui.SurahFragment"
+        android:name="com.legalist.quranrhbr.ui.bottomMenu.SurahFragment"
         android:label="fragment_surah"
         tools:layout="@layout/fragment_surah" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/hadisFragment"
-        android:name="com.legalist.quranrhbr.viewpager.HadisFragment"
+        android:name="com.legalist.quranrhbr.ui.bottomMenu.HadisFragment"
         android:label="fragment_hadis"
         tools:layout="@layout/fragment_hadis" >
         <action
