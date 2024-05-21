@@ -29,10 +29,13 @@ class SurahFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        
 
         val recyclerView: RecyclerView = view.findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         val progressBar: ProgressBar = view.findViewById(R.id.progress_bar)
+
+
 
 
         viewModel.surahs.observe(viewLifecycleOwner, Observer { surahs ->

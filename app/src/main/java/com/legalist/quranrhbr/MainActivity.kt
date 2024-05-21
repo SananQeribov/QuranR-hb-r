@@ -19,51 +19,52 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Thread.sleep(3000)
+       // Thread.sleep(3000)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        installSplashScreen()
 
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        val navController = navHostFragment.navController
+//
+//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+//        val navController = navHostFragment.navController
+//
+//
+//        navController.addOnDestinationChangedListener { _, destination, _ ->
+//            binding.bottomNav.isVisible = destination.id == R.id.homeFragment
+//        }
+//        binding.bottomNav.setupWithNavController(navController)
 
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.bottomNav.isVisible = destination.id == R.id.homeFragment
-        }
-        binding.bottomNav.setupWithNavController(navController)
 
-
-
-        binding.bottomNav.setOnItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.home -> {
-                    binding.bottomNav.isVisible = true
-                    replaceFragment(SettingFragment())
-                    true
-                }
-                R.id.quran -> {
-                    binding.bottomNav.isVisible = true
-                    replaceFragment(SurahFragment())
-                    true
-                }
-                R.id.mosque -> {
-                    binding.bottomNav.isVisible = true
-                    replaceFragment(PrayertimeFragment())
-                    true
-                }
-                else -> false
-            }
-        }
+//        binding.bottomNav.setOnItemSelectedListener { menuItem ->
+//            when (menuItem.itemId) {
+//                R.id.home -> {
+//                    binding.bottomNav.isVisible = true
+//                    replaceFragment(SettingFragment())
+//                    true
+//                }
+//                R.id.quran -> {
+//                    binding.bottomNav.isVisible = true
+//                    replaceFragment(SurahFragment())
+//                    true
+//                }
+//                R.id.mosque -> {
+//                    binding.bottomNav.isVisible = true
+//                    replaceFragment(PrayertimeFragment())
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
 
 
     }
 
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragmentContainerView, fragment)
-            commit()
-        }
-    }
+//    private fun replaceFragment(fragment: Fragment) {
+//        supportFragmentManager.beginTransaction().apply {
+//            replace(R.id.fragmentContainerView, fragment)
+//            commit()
+//        }
+//    }
 }
