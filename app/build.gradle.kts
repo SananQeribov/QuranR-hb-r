@@ -109,6 +109,8 @@ dependencies {
     // Retrofit, JSON verileri dönüştürmek için Gson kullanımı
     implementation ("com.squareup.retrofit2:converter-gson:$retrofit_version")
 
+    implementation ("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
+
     // Dagger Hilt, bağımlılık enjeksiyonu kütüphanesi (runtime), Hilt kullanarak bağımlılık yönetimi için
     implementation ("com.google.dagger:hilt-android:$hilt_version")
 
@@ -116,6 +118,10 @@ dependencies {
     kapt ("com.google.dagger:hilt-android-compiler:$hilt_version")
 
     implementation ("androidx.appcompat:appcompat:1.3.0")
+
+    val rxJavaVersion = "2.1.1"
+    implementation ("io.reactivex.rxjava2:rxjava:$rxJavaVersion")
+    implementation ("io.reactivex.rxjava2:rxandroid:$rxJavaVersion")
 
 
 }

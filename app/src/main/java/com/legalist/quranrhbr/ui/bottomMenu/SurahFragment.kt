@@ -37,6 +37,8 @@ class SurahFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         val progressBar: ProgressBar = view.findViewById(R.id.progress_bar)
 
+
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.surahs.collect { surahs ->
                 if (surahs != null) {

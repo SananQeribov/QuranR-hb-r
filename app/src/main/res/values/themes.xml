@@ -2,8 +2,10 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.QuranRəhbər" parent="Theme.Material3.DayNight.NoActionBar">
 <!--              remove default splash-->
-        <item name="android:windowIsTranslucent">true</item>
+
+
         <!--  ////////////////////////////////////////////////////      -->
+
 
 
         <!-- Customize your light theme here. -->

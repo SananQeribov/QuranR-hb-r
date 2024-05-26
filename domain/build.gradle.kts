@@ -45,6 +45,19 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
+
+    // Lifecycle component & Kotlin coroutines components
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0")
+    api ( "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9")
+    api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+    //rx java
+    val rxJavaVersion = "2.1.1"
+    implementation ("io.reactivex.rxjava2:rxjava:$rxJavaVersion")
+    implementation ("io.reactivex.rxjava2:rxandroid:$rxJavaVersion")
+
 
 
 
