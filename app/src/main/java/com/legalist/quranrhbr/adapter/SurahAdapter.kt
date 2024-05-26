@@ -7,14 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ders.domain.model.Surah
 import com.legalist.quranrhbr.R
-
-// common/SurahAdapter.kt
-
 import android.widget.Filter
 import android.widget.Filterable
-
 import java.util.*
-
 
 class SurahAdapter(private val surahList: List<Surah>) :
     RecyclerView.Adapter<SurahAdapter.SurahViewHolder>(), Filterable {
@@ -22,11 +17,12 @@ class SurahAdapter(private val surahList: List<Surah>) :
     private var filteredSurahList: List<Surah> = surahList
 
     class SurahViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val number: TextView = view.findViewById(R.id.surah_number)
         val name: TextView = view.findViewById(R.id.surah_name)
         val englishName: TextView = view.findViewById(R.id.surah_english_name)
         val translation: TextView = view.findViewById(R.id.surah_translation)
         val ayahsNumber: TextView = view.findViewById(R.id.ayahs_number)
-        val revelationType:TextView= view.findViewById(R.id.revelationType)
+        val revelationType: TextView = view.findViewById(R.id.revelationType)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SurahViewHolder {
@@ -36,10 +32,11 @@ class SurahAdapter(private val surahList: List<Surah>) :
 
     override fun onBindViewHolder(holder: SurahViewHolder, position: Int) {
         val surah = filteredSurahList[position]
+        holder.number.text = (position + 1).toString()
         holder.name.text = surah.name
         holder.englishName.text = surah.englishName
         holder.translation.text = surah.englishNameTranslation
-        holder.ayahsNumber.text=surah.numberOfAyahs.toString()
+        holder.ayahsNumber.text = surah.numberOfAyahs.toString()
         holder.revelationType.text = surah.revelationType
     }
 
@@ -73,4 +70,3 @@ class SurahAdapter(private val surahList: List<Surah>) :
         }
     }
 }
-
