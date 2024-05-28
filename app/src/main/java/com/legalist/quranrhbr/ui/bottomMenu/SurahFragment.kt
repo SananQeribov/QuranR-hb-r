@@ -39,7 +39,7 @@ class SurahFragment : Fragment() {
 
 
 
-        viewLifecycleOwner.lifecycleScope.launch {
+         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.surahs.collect { surahs ->
                 if (surahs != null) {
                     adapter = SurahAdapter(surahs)

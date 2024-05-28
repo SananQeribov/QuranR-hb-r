@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
                     true
                 }
                 R.id.mosque -> {
-                    navController.navigate(R.id.godNamesFragment)
+                    navController.navigate(R.id.zikirFragment)
                     true
                 }
                 else -> false

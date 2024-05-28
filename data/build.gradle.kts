@@ -98,4 +98,6 @@ dependencies {
     val rxJavaVersion = "2.1.1"
     implementation ("io.reactivex.rxjava2:rxjava:$rxJavaVersion")
     implementation ("io.reactivex.rxjava2:rxandroid:$rxJavaVersion")
+
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 }

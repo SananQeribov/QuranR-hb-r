@@ -80,7 +80,7 @@ dependencies {
     var hilt_version = "2.44"
     var room_version = "2.5.0"
     var retrofit_version= "2.9.0"
-
+     val rxJavaVersion = "2.1.1"  // 2.6.6 not working
 
 
 
@@ -111,6 +111,8 @@ dependencies {
 
     implementation ("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
 
+
+
     // Dagger Hilt, bağımlılık enjeksiyonu kütüphanesi (runtime), Hilt kullanarak bağımlılık yönetimi için
     implementation ("com.google.dagger:hilt-android:$hilt_version")
 
@@ -118,10 +120,11 @@ dependencies {
     kapt ("com.google.dagger:hilt-android-compiler:$hilt_version")
 
     implementation ("androidx.appcompat:appcompat:1.3.0")
+    implementation ("com.squareup.retrofit2:adapter-rxjava2:$retrofit_version")
 
-    val rxJavaVersion = "2.1.1"
     implementation ("io.reactivex.rxjava2:rxjava:$rxJavaVersion")
     implementation ("io.reactivex.rxjava2:rxandroid:$rxJavaVersion")
+
 
 
 }

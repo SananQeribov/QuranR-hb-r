@@ -12,10 +12,7 @@
         tools:layout="@layout/fragment_surah" >
         <action
             android:id="@+id/action_surahFragment_to_prayertimeFragment2"
-            app:destination="@id/godNamesFragment" />
-        <action
-            android:id="@+id/action_surahFragment_to_godNamesFragment"
-            app:destination="@id/godNamesFragment" />
+            app:destination="@id/zikirFragment" />
     </fragment>
     <fragment
         android:id="@+id/hadisFragment"
@@ -27,12 +24,12 @@
             app:destination="@id/surahFragment" />
     </fragment>
     <fragment
-        android:id="@+id/godNamesFragment"
-        android:name="com.legalist.quranrhbr.ui.GodNamesFragment"
-        android:label="fragment_god_names"
-        tools:layout="@layout/fragment_god_names" >
+        android:id="@+id/zikirFragment"
+        android:name="com.legalist.quranrhbr.ui.bottomMenu.ZikirFragment"
+        android:label="zikirfragment"
+        tools:layout="@layout/fragment_zikir" >
         <action
-            android:id="@+id/action_godNamesFragment_to_hadisFragment"
+            android:id="@+id/action_prayertimeFragment_to_hadisFragment"
             app:destination="@id/hadisFragment" />
     </fragment>
 </navigation>

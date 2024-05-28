@@ -7,4 +7,3 @@ plugins {
     alias(libs.plugins.navigation.safeargs.kotlin) apply false
     id("com.google.dagger.hilt.android") version "2.44" apply false
 }
-
