@@ -5,8 +5,9 @@ package com.legalist.mylibrary.managers.repository
 
 import android.content.SharedPreferences
 import com.ders.domain.model.Surah
-import com.legalist.mylibrary.managers.api.ApiService
+
 import com.google.gson.Gson
+import com.legalist.mylibrary.managers.remote.api.ApiService
 
 class SurahRepository(
     private val apiService: ApiService,
