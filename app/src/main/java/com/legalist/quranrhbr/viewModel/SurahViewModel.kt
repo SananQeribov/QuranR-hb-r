@@ -27,7 +27,7 @@ class SurahViewModel(application: Application) : AndroidViewModel(application) {
     init {
         fetchSurahs()
     }
-
+//merged
     private fun fetchSurahs() {
         viewModelScope.launch {
             try {
