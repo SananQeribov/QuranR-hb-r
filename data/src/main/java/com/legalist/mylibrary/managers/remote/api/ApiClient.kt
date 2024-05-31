@@ -1,4 +1,4 @@
-package com.legalist.mylibrary.managers.api
+package com.legalist.mylibrary.managers.remote.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

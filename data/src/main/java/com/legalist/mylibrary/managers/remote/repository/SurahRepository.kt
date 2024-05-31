@@ -1,8 +1,8 @@
-package com.legalist.mylibrary.managers.repository
+package com.legalist.mylibrary.managers.remote.repository
 
 
 import com.ders.domain.model.Surah
-import com.legalist.mylibrary.managers.api.ApiService
+import com.legalist.mylibrary.managers.remote.api.ApiService
 
 // domain/SurahRepository.kt
 class SurahRepository(private val apiService: ApiService) {

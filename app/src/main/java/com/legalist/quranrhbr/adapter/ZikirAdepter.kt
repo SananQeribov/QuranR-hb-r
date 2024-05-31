@@ -3,18 +3,19 @@ package com.legalist.quranrhbr.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ders.domain.model.Data
-import com.ders.domain.model.ZikirResponse
+import com.legalist.mylibrary.managers.local.entity.Zikr
 import com.legalist.quranrhbr.databinding.ListZikirBinding
 
-class ZikirAdepter(private val zikirlist: ZikirResponse) : RecyclerView.Adapter<ZikirAdepter.HomeHolder>() {
-    class HomeHolder(private val binding: ListZikirBinding) : RecyclerView.ViewHolder(binding.root) {
+class ZikirAdepter(private val zikirlist: List<Zikr>) :
+    RecyclerView.Adapter<ZikirAdepter.HomeHolder>() {
+    class HomeHolder(private val binding: ListZikirBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(homes: Data) {
+        fun bind(homes: Zikr) {
             binding.arabic.text = homes.arabicName
             binding.reading.text = homes.transliteration
             binding.queded.text = homes.id.toString()
-            binding.transition .text  = homes.englishTranslation
+            binding.transition.text = homes.englishTranslation
         }
     }
 
@@ -25,10 +26,10 @@ class ZikirAdepter(private val zikirlist: ZikirResponse) : RecyclerView.Adapter<
 
 
     override fun onBindViewHolder(holder: HomeHolder, position: Int) {
-        holder.bind(zikirlist.data[position])
+        holder.bind(zikirlist[position])
     }
 
-    override fun getItemCount() = zikirlist.data.size
+    override fun getItemCount() = zikirlist.size
 }
 
 

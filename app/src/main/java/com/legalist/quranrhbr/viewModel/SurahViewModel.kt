@@ -3,8 +3,9 @@ package com.legalist.quranrhbr.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ders.domain.model.Surah
-import com.legalist.mylibrary.managers.api.ApiClient
-import com.legalist.mylibrary.managers.repository.SurahRepository
+import com.legalist.mylibrary.managers.local.room.db.ZikrDatabase
+import com.legalist.mylibrary.managers.remote.api.ApiClient
+import com.legalist.mylibrary.managers.remote.repository.SurahRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

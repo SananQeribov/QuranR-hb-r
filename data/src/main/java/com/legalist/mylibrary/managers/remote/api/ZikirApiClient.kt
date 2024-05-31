@@ -1,7 +1,6 @@
-package com.legalist.mylibrary.managers.api
+package com.legalist.mylibrary.managers.remote.api
 
 import com.ders.domain.model.ZikirResponse
-import io.reactivex.Observable
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

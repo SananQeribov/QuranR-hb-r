@@ -1,4 +1,4 @@
-package com.legalist.mylibrary.managers.api
+package com.legalist.mylibrary.managers.remote.api
 
 import com.ders.domain.model.QuranResponse
 import retrofit2.Response

@@ -2,6 +2,7 @@ package com.legalist.quranrhbr
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.legalist.mylibrary.managers.local.room.db.ZikrDatabase
 import com.legalist.quranrhbr.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -10,9 +11,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       // Thread.sleep(3000)
+        // Thread.sleep(3000)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        ZikrDatabase(this)
+
 //        installSplashScreen()
 
 
@@ -25,7 +29,6 @@ class MainActivity : AppCompatActivity() {
 //            binding.bottomNav.isVisible = destination.id == R.id.homeFragment
 //        }
 //        binding.bottomNav.setupWithNavController(navController)
-
 
 
 //        binding.bottomNav.setOnItemSelectedListener { menuItem ->

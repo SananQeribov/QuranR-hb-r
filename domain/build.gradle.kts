@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id ("kotlin-kapt")
 
 }
 
@@ -57,7 +58,15 @@ dependencies {
     val rxJavaVersion = "2.1.1"
     implementation ("io.reactivex.rxjava2:rxjava:$rxJavaVersion")
     implementation ("io.reactivex.rxjava2:rxandroid:$rxJavaVersion")
+    //room
+    var room_version = "2.5.0"
+    // AndroidX Room, veritabanı erişim kütüphanesi (runtime), SQLite ile çalışmak için
+    implementation ("androidx.room:room-runtime:$room_version")
 
+    kapt ("androidx.room:room-compiler:$room_version")
+
+    // AndroidX Room, Kotlin genişletmeleri, Room ile daha kolay çalışmak için
+    implementation ("androidx.room:room-ktx:$room_version")
 
 
 
