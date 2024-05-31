@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_surahFragment_to_prayertimeFragment2"
             app:destination="@id/zikirFragment" />
+        <action
+            android:id="@+id/action_surahFragment_to_quranFragment4"
+            app:destination="@id/quranFragment4" />
     </fragment>
     <fragment
         android:id="@+id/hadisFragment"
@@ -32,4 +35,9 @@
             android:id="@+id/action_prayertimeFragment_to_hadisFragment"
             app:destination="@id/hadisFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/quranFragment4"
+        android:name="com.legalist.quranrhbr.ui.QuranFragment"
+        android:label="fragment_quran"
+        tools:layout="@layout/fragment_quran" />
 </navigation>

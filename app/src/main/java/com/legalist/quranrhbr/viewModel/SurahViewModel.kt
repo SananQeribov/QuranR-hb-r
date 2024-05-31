@@ -1,6 +1,8 @@
 package com.legalist.quranrhbr.viewModel
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import android.content.Context
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.ders.domain.model.Surah
 import com.legalist.mylibrary.managers.local.room.db.ZikrDatabase
@@ -10,9 +12,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class SurahViewModel : ViewModel() {
+class SurahViewModel(application: Application) : AndroidViewModel(application) {
+    private val sharedPreferences = application.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
     private val apiService = ApiClient.getApiService()
-    private val repository = SurahRepository(apiService)
+    private val repository = SurahRepository(apiService, sharedPreferences)
 
     private val _surahs = MutableStateFlow<List<Surah>?>(null)
     val surahs: StateFlow<List<Surah>?> get() = _surahs
@@ -39,6 +42,3 @@ class SurahViewModel : ViewModel() {
         }
     }
 }
-
-// domain/SurahViewModel.kt
-

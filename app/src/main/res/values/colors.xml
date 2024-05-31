@@ -21,5 +21,16 @@
     <color name="arkaplan">#9C27B0</color>
     <color name="gray">#757575</color>
 
+        <!-- search view   -->
+    <color name="search_hint_color">#9E9E9E</color>
+    <color name="search_text_color">#000000</color>
+    <color name="search_background_color">#FFC107</color> <!-- Background color for the search view -->
+    <color name="search_stroke_color">#FF5722</color> <!-- Default border color for the search view -->
+    <color name="search_stroke_color_focused">#FF0000</color> <!-- Border color when the search view is focused -->
+    <color name="search_icon_color">#FFFFFF</color> <!-- Color for the search and close icons -->
+    <color name="primaryColor">#6200EE</color>
+
+
+
 
 </resources>

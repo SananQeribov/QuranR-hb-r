@@ -100,4 +100,12 @@ dependencies {
     implementation ("io.reactivex.rxjava2:rxandroid:$rxJavaVersion")
 
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+
+    implementation ("androidx.datastore:datastore-preferences:1.0.0-alpha01")
+
+    // Lifecycle component & Kotlin coroutines components
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0")
+    api ( "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9")
+    api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+
 }

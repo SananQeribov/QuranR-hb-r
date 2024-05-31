@@ -12,6 +12,7 @@ class OnboardingViewModel : ViewModel() {
         val mainText: String,
         val subText: String,
         val imageResId: Int
+
     )
 
     val pages = listOf(

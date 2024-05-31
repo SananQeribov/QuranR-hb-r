@@ -11,18 +11,25 @@ import android.widget.Filter
 import android.widget.Filterable
 import java.util.*
 
-class SurahAdapter(private val surahList: List<Surah>) :
+class SurahAdapter(private val surahList: List<Surah>,
+                   private val onItemClick: (position: Int) -> Unit) :
     RecyclerView.Adapter<SurahAdapter.SurahViewHolder>(), Filterable {
 
     private var filteredSurahList: List<Surah> = surahList
 
-    class SurahViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class SurahViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val number: TextView = view.findViewById(R.id.surah_number)
         val name: TextView = view.findViewById(R.id.surah_name)
         val englishName: TextView = view.findViewById(R.id.surah_english_name)
         val translation: TextView = view.findViewById(R.id.surah_translation)
         val ayahsNumber: TextView = view.findViewById(R.id.ayahs_number)
         val revelationType: TextView = view.findViewById(R.id.revelationType)
+
+        init {
+            view.setOnClickListener {
+                onItemClick.invoke(adapterPosition)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SurahViewHolder {
@@ -38,9 +45,14 @@ class SurahAdapter(private val surahList: List<Surah>) :
         holder.translation.text = surah.englishNameTranslation
         holder.ayahsNumber.text = surah.numberOfAyahs.toString()
         holder.revelationType.text = surah.revelationType
+        holder.itemView.setOnClickListener {
+            onItemClick(position)
+        }
     }
 
     override fun getItemCount() = filteredSurahList.size
+
+    override fun getItemId(position: Int): Long = position.toLong()
 
     override fun getFilter(): Filter {
         return object : Filter() {
@@ -52,7 +64,9 @@ class SurahAdapter(private val surahList: List<Surah>) :
                 } else {
                     val filterPattern = constraint.toString().trim().toLowerCase(Locale.getDefault())
                     for (item in surahList) {
-                        if (item.name.toLowerCase(Locale.getDefault()).contains(filterPattern)) {
+                        if (item.name.toLowerCase(Locale.getDefault()).contains(filterPattern) ||
+                            item.englishName.toLowerCase(Locale.getDefault()).contains(filterPattern) ||
+                            item.englishNameTranslation.toLowerCase(Locale.getDefault()).contains(filterPattern)) {
                             filteredResults.add(item)
                         }
                     }

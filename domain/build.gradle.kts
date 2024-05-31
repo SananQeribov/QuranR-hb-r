@@ -45,6 +45,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    var room_version = "2.5.0"
 
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -58,8 +59,9 @@ dependencies {
     val rxJavaVersion = "2.1.1"
     implementation ("io.reactivex.rxjava2:rxjava:$rxJavaVersion")
     implementation ("io.reactivex.rxjava2:rxandroid:$rxJavaVersion")
-    //room
-    var room_version = "2.5.0"
+    // AndroidX Lifecycle, ViewModel bileşeni, UI ile veri yönetimi için
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+
     // AndroidX Room, veritabanı erişim kütüphanesi (runtime), SQLite ile çalışmak için
     implementation ("androidx.room:room-runtime:$room_version")
 
@@ -67,6 +69,7 @@ dependencies {
 
     // AndroidX Room, Kotlin genişletmeleri, Room ile daha kolay çalışmak için
     implementation ("androidx.room:room-ktx:$room_version")
+
 
 
 
