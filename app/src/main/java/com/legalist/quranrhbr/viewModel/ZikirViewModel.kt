@@ -2,9 +2,10 @@ package com.legalist.quranrhbr.viewModel
 
 import android.annotation.SuppressLint
 import android.app.Application
+import android.content.Context
+import android.net.ConnectivityManager
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
 import com.ders.domain.model.ZikirResponse
 import com.legalist.mylibrary.managers.local.entity.Zikr
 import com.legalist.mylibrary.managers.local.room.db.ZikrDatabase
@@ -25,27 +26,43 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
     val zikirerror = MutableLiveData<Boolean>()
     val loading = MutableLiveData<Boolean>()
 
+    // Connectivity manager to check for internet connection
+    private val connectivityManager =
+        application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
     fun refereshdata() {
-        getdatafromApi()
-        getDataFromRoom()
+        if (isInternetAvailable()) {
+            Log.d("ZikirViewModel", "Internet is available, fetching data from API")
+            getdatafromApi()
+        } else {
+            Log.d("ZikirViewModel", "No internet, fetching data from local database")
+            getDataFromRoom()
+        }
+    }
+
+    private fun isInternetAvailable(): Boolean {
+        val activeNetwork = connectivityManager.activeNetworkInfo
+        return activeNetwork?.isConnectedOrConnecting == true
     }
 
     @SuppressLint("SuspiciousIndentation")
     private fun getdatafromApi() {
         loading.value = true
         disposable.add(
-            ZikirApiClient().getdata()
-                .subscribeOn(Schedulers.newThread())
+            zikirapi.getdata()
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<ZikirResponse>() {
 
                     override fun onSuccess(t: ZikirResponse) {
+                        Log.d("ZikirViewModel", "Data fetched from API successfully")
                         saveroom(t.data.map {
                             Zikr(it.arabicName, it.englishTranslation, it.id, it.transliteration)
                         })
                     }
 
                     override fun onError(e: Throwable) {
+                        Log.e("ZikirViewModel", "Error fetching data from API", e)
                         loading.value = false
                         zikirerror.value = true
                         e.printStackTrace()
@@ -63,17 +80,36 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
     private fun saveroom(list: List<Zikr>) {
         launch(Dispatchers.IO) {
             ZikrDatabase.getDao().insertAll(list)
+            Log.d("ZikirViewModel", "Data saved to local database")
+            withContext(Dispatchers.Main) {
+                getDataFromRoom()
+            }
         }
     }
 
     private fun getDataFromRoom() {
+        loading.postValue(true)
         launch(Dispatchers.IO) {
             ZikrDatabase.getDao().getdataAll().collectLatest {
-                withContext(Dispatchers.Main){
-                    showAllahnames(it)
-                    Log.d("SSSSSSSSSSSS", it.size.toString())
+                if (it.isNotEmpty()) {
+                    withContext(Dispatchers.Main) {
+                        showAllahnames(it)
+                        Log.d(
+                            "ZikirViewModel",
+                            "Data fetched from local database: ${it.size} items"
+                        )
+                    }
+                } else {
+                    Log.d("ZikirViewModel", "No data found in local database, fetching from API")
+                    getdatafromApi()
                 }
             }
         }
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        disposable.clear()
+    }
 }
+
