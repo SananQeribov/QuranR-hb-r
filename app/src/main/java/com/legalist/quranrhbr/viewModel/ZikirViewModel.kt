@@ -6,6 +6,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.ders.domain.model.ZikirResponse
 import com.legalist.mylibrary.managers.local.entity.Zikr
 import com.legalist.mylibrary.managers.local.room.db.ZikrDatabase
@@ -27,17 +28,11 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
     val loading = MutableLiveData<Boolean>()
 
     // Connectivity manager to check for internet connection
-    private val connectivityManager =
-        application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    private val connectivityManager = application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
     fun refereshdata() {
-        if (isInternetAvailable()) {
-            Log.d("ZikirViewModel", "Internet is available, fetching data from API")
-            getdatafromApi()
-        } else {
-            Log.d("ZikirViewModel", "No internet, fetching data from local database")
-            getDataFromRoom()
-        }
+       getDataFromRoom() // daim bu funksiyani caqiracaq cunki
+                              // sen yoxlamani get data from daxilinde etmisen
     }
 
     private fun isInternetAvailable(): Boolean {
@@ -71,10 +66,11 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
         )
     }
 
-    private fun showAllahnames(list: List<Zikr>) {
+    private fun showAllahnames(list: List<Zikr>):List<Zikr> {
         zikirs.value = list
         zikirerror.value = false
         loading.value = false
+        return list
     }
 
     private fun saveroom(list: List<Zikr>) {
@@ -89,19 +85,23 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
 
     private fun getDataFromRoom() {
         loading.postValue(true)
-        launch(Dispatchers.IO) {
-            ZikrDatabase.getDao().getdataAll().collectLatest {
-                if (it.isNotEmpty()) {
-                    withContext(Dispatchers.Main) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val data = ZikrDatabase.getDao().getdataAll() //roomdaki data
+            data.collectLatest {
+                withContext(Dispatchers.Main) {
+                    if (it.isNotEmpty()) { //roomda data bos deyilse
                         showAllahnames(it)
-                        Log.d(
-                            "ZikirViewModel",
-                            "Data fetched from local database: ${it.size} items"
-                        )
+                        Log.d("ZikirViewModel", "Data fetched from local database: ${it.size} items")
+                    } else {
+                        Log.d("ZikirViewModel", "Local database is empty, trying to fetch from API")
+                        if (isInternetAvailable()) {
+                            getdatafromApi()
+                        } else {
+                            Log.d("ZikirViewModel", "No internet and local database is empty")
+                            zikirerror.value = true
+                            loading.value = false//bunlari yazanda ne anlam olur
+                        }
                     }
-                } else {
-                    Log.d("ZikirViewModel", "No data found in local database, fetching from API")
-                    getdatafromApi()
                 }
             }
         }
@@ -112,4 +112,3 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
         disposable.clear()
     }
 }
-
