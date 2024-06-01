@@ -31,8 +31,7 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
     private val connectivityManager = application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
     fun refereshdata() {
-       getDataFromRoom() // daim bu funksiyani caqiracaq cunki
-                              // sen yoxlamani get data from daxilinde etmisen
+       getDataFromRoom() //
     }
 
     private fun isInternetAvailable(): Boolean {
@@ -86,10 +85,10 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
     private fun getDataFromRoom() {
         loading.postValue(true)
         viewModelScope.launch(Dispatchers.IO) {
-            val data = ZikrDatabase.getDao().getdataAll() //roomdaki data
+            val data = ZikrDatabase.getDao().getdataAll()
             data.collectLatest {
                 withContext(Dispatchers.Main) {
-                    if (it.isNotEmpty()) { //roomda data bos deyilse
+                    if (it.isNotEmpty()) {
                         showAllahnames(it)
                         Log.d("ZikirViewModel", "Data fetched from local database: ${it.size} items")
                     } else {
@@ -99,7 +98,7 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
                         } else {
                             Log.d("ZikirViewModel", "No internet and local database is empty")
                             zikirerror.value = true
-                            loading.value = false//bunlari yazanda ne anlam olur
+                            loading.value = false
                         }
                     }
                 }
