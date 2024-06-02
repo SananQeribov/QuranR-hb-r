@@ -1,6 +1,5 @@
 package com.legalist.quranrhbr.adapter
 
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,8 +15,10 @@ class SurahPagerAdapter : RecyclerView.Adapter<SurahPagerAdapter.SurahViewHolder
     private val surahs = mutableListOf<JSONObject>()
 
     inner class SurahViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val surahNumberTextView: TextView = itemView.findViewById(R.id.surahNumberTextView)
         val surahNameTextView: TextView = itemView.findViewById(R.id.surahNameTextView)
         val surahDetailsTextView: TextView = itemView.findViewById(R.id.surahDetailsTextView)
+        val ayahCountTextView: TextView = itemView.findViewById(R.id.ayahCountTextView)
         val ayahRecyclerView: RecyclerView = itemView.findViewById(R.id.recyclerView)
         val ayahAdapter = AyahAdapter()
 
@@ -34,12 +35,15 @@ class SurahPagerAdapter : RecyclerView.Adapter<SurahPagerAdapter.SurahViewHolder
 
     override fun onBindViewHolder(holder: SurahViewHolder, position: Int) {
         val surah = surahs[position]
+        holder.surahNumberTextView.text = "Surah Number: ${position + 1}"
         holder.surahNameTextView.text = surah.getString("name")
         val details = "English Name: ${surah.getString("englishName")}\n" +
                 "Translation: ${surah.getString("englishNameTranslation")}\n" +
                 "Revelation Type: ${surah.getString("revelationType")}"
         holder.surahDetailsTextView.text = details
-        holder.ayahAdapter.setAyahs(surah.getJSONArray("ayahs"))
+        val ayahs = surah.getJSONArray("ayahs")
+        holder.ayahCountTextView.text = "Ayah Count: ${ayahs.length()}"
+        holder.ayahAdapter.setAyahs(ayahs)
     }
 
     override fun getItemCount(): Int = surahs.size
@@ -51,6 +55,4 @@ class SurahPagerAdapter : RecyclerView.Adapter<SurahPagerAdapter.SurahViewHolder
         }
         notifyDataSetChanged()
     }
-
-
 }

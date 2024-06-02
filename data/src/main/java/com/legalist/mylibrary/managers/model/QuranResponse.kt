@@ -7,3 +7,6 @@ data class QuranResponse(
     @SerializedName("status") val status: String,
     @SerializedName("data") val data: QuranData
 )
+//https://api.alquran.cloud/v1/quran/ar.alafasy
+
+//https://api.alquran.cloud/v1/quran/en.asad

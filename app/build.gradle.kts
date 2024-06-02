@@ -113,6 +113,11 @@ dependencies {
 
 
 
+    implementation ("com.google.protobuf:protobuf-javalite:3.18.0")
+
+
+
+
     // Dagger Hilt, bağımlılık enjeksiyonu kütüphanesi (runtime), Hilt kullanarak bağımlılık yönetimi için
     implementation ("com.google.dagger:hilt-android:$hilt_version")
 

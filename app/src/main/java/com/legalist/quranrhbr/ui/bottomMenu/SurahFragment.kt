@@ -15,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.legalist.mylibrary.managers.repository.QuranRepository
 import com.legalist.quranrhbr.R
 import com.legalist.quranrhbr.ui.QuranActivity
 import com.legalist.quranrhbr.adapter.SurahAdapter
@@ -28,6 +29,8 @@ class SurahFragment : Fragment() {
     private lateinit var adapter: SurahAdapter
     private lateinit var progressBar: ProgressBar
     private lateinit var sharedPreferences: SharedPreferences
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +50,11 @@ class SurahFragment : Fragment() {
         val searchView: SearchView = view.findViewById(R.id.search_view)
 
 
+
+
+
         viewLifecycleOwner.lifecycleScope.launch {
+
             viewModel.surahs.collect { surahs ->
                 if (surahs != null) {
                     adapter = SurahAdapter(surahs) { position ->
@@ -116,6 +123,7 @@ class SurahFragment : Fragment() {
             }
         })
     }
+
 
 
 }
