@@ -3,7 +3,9 @@ package com.legalist.quranrhbr.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.animation.AnimationUtils
 import com.legalist.mylibrary.managers.local.entity.Zikr
+import com.legalist.quranrhbr.R
 import com.legalist.quranrhbr.databinding.ListZikirBinding
 
 class ZikirAdepter(private val zikirlist: List<Zikr>) :
@@ -16,6 +18,8 @@ class ZikirAdepter(private val zikirlist: List<Zikr>) :
             binding.reading.text = homes.transliteration
             binding.queded.text = homes.id.toString()
             binding.transition.text = homes.englishTranslation
+            val animation = android.view.animation.AnimationUtils.loadAnimation(binding.root.context, R.anim.animation)
+            binding.cardView.startAnimation(animation)
         }
     }
 

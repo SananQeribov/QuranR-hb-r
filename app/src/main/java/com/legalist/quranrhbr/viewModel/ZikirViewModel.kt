@@ -28,10 +28,11 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
     val loading = MutableLiveData<Boolean>()
 
     // Connectivity manager to check for internet connection
-    private val connectivityManager = application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    private val connectivityManager =
+        application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
     fun refereshdata() {
-       getDataFromRoom() //
+        getDataFromRoom() //
     }
 
     private fun isInternetAvailable(): Boolean {
@@ -65,7 +66,7 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
         )
     }
 
-    private fun showAllahnames(list: List<Zikr>):List<Zikr> {
+    private fun showAllahnames(list: List<Zikr>): List<Zikr> {
         zikirs.value = list
         zikirerror.value = false
         loading.value = false
@@ -80,9 +81,7 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
                 getDataFromRoom()
             }
         }
-    }
-
-    private fun getDataFromRoom() {
+    }private fun getDataFromRoom() {
         loading.postValue(true)
         viewModelScope.launch(Dispatchers.IO) {
             val data = ZikrDatabase.getDao().getdataAll()
@@ -90,7 +89,10 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
                 withContext(Dispatchers.Main) {
                     if (it.isNotEmpty()) {
                         showAllahnames(it)
-                        Log.d("ZikirViewModel", "Data fetched from local database: ${it.size} items")
+                        Log.d(
+                            "ZikirViewModel",
+                            "Data fetched from local database: ${it.size} items"
+                        )
                     } else {
                         Log.d("ZikirViewModel", "Local database is empty, trying to fetch from API")
                         if (isInternetAvailable()) {
@@ -104,9 +106,7 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
                 }
             }
         }
-    }
-
-    override fun onCleared() {
+    }override fun onCleared() {
         super.onCleared()
         disposable.clear()
     }
