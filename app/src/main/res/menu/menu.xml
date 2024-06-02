@@ -5,7 +5,7 @@
         <item
             android:id="@+id/home"
 
-            android:icon="@drawable/apple_icon"
+            android:icon="@drawable/fireexit"
             android:title=""
             app:showAsAction="ifRoom" />
 
@@ -17,7 +17,7 @@
 
         <item
             android:id="@+id/mosque"
-            android:icon="@drawable/mosquebutton"
+            android:icon="@drawable/allah"
             android:title=""
            app:showAsAction="ifRoom" />
 
