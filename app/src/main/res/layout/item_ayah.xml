@@ -22,13 +22,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textDirection="rtl" />
+        android:layout_gravity="end"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:id="@+id/ayahEnglishTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
+        android:textColor="@android:color/black"
         android:paddingTop="4dp" />
 
     <LinearLayout
@@ -58,6 +60,22 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_stop"
             android:contentDescription="Stop"
+            android:layout_marginStart="16dp" />
+
+        <ImageButton
+            android:id="@+id/copyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_copy"
+            android:contentDescription="Copy"
+            android:layout_marginStart="16dp" />
+
+        <ImageButton
+            android:id="@+id/shareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_share"
+            android:contentDescription="Share"
             android:layout_marginStart="16dp" />
     </LinearLayout>
 </LinearLayout>

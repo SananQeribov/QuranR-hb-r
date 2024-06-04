@@ -12,6 +12,23 @@
         android:orientation="vertical"
         android:gravity="center">
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/privacyPolicy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:text="Privacy &amp; policy"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/helpSupport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:text="Help &amp; Support"/>
+
+
         <ToggleButton
             android:id="@+id/toggleThemeButton"
             android:layout_width="wrap_content"
@@ -24,7 +41,16 @@
             android:drawableTop="@drawable/ic_dark_mode"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="20dp"
+            android:textAllCaps="false"
             android:textColor="@android:color/white"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:text="about"/>
 
 
         <Button

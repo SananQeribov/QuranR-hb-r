@@ -37,8 +37,9 @@ class QuranActivity : AppCompatActivity(), ProgressBarCallback {
 
 
 
-
     }
+
+
 
 
     private fun observeData() {

@@ -1,0 +1,17 @@
+
+
+https://api.alquran.cloud/v1/quran/en.asad
+
+https://api.alquran.cloud/v1/quran/ar.alafasy
+
+https://api.alquran.cloud/v1/surah
+
+https://ayazprogrammer.github.io/host_api/name.json
+
+https://ayazprogrammer.github.io/host_api/data_quran.json  +++
+
+
+
+
+
+https://ayazprogrammer.github.io/host_api/quran_data.json

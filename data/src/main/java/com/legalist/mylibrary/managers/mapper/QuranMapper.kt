@@ -1,17 +1,22 @@
 package com.legalist.mylibrary.managers.mapper
 
 
+import android.util.Log
 import com.legalist.mylibrary.managers.model.QuranResponse
 import org.json.JSONArray
 import org.json.JSONObject
+
+
 
 class QuranMapper {
     fun mergeSurahs(arabicResponse: QuranResponse, englishResponse: QuranResponse): JSONArray {
         val mergedSurahs = JSONArray()
 
         for (i in arabicResponse.data.surahs.indices) {
+
             val arabicSurah = arabicResponse.data.surahs[i]
             val englishSurah = englishResponse.data.surahs[i]
+
 
             val mergedSurah = JSONObject()
 
@@ -32,7 +37,9 @@ class QuranMapper {
                 mergedAyah.put("textEnglish", englishAyah.text)
                 mergedAyah.put("audio", arabicAyah.audio)
 
+
                 mergedAyahs.put(mergedAyah)
+                println("sureler ${mergedAyah}")
             }
 
             mergedSurah.put("ayahs", mergedAyahs)
@@ -40,5 +47,7 @@ class QuranMapper {
         }
 
         return mergedSurahs
+
     }
+
 }

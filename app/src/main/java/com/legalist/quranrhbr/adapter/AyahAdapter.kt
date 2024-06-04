@@ -1,16 +1,24 @@
 package com.legalist.quranrhbr.adapter
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.content.Intent
+import android.widget.Toast
 import android.media.MediaPlayer
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.legalist.quranrhbr.R
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
+
 class AyahAdapter : RecyclerView.Adapter<AyahAdapter.AyahViewHolder>() {
 
     private val ayahs = mutableListOf<JSONObject>()
@@ -28,7 +36,6 @@ class AyahAdapter : RecyclerView.Adapter<AyahAdapter.AyahViewHolder>() {
             prepareAsync()
         }
     }
-
     inner class AyahViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ayahNumberTextView: TextView = itemView.findViewById(R.id.ayahNumberTextView)
         val ayahArabicTextView: TextView = itemView.findViewById(R.id.ayahArabicTextView)
@@ -36,6 +43,8 @@ class AyahAdapter : RecyclerView.Adapter<AyahAdapter.AyahViewHolder>() {
         val playButton: ImageButton = itemView.findViewById(R.id.playButton)
         val pauseButton: ImageButton = itemView.findViewById(R.id.pauseButton)
         val stopButton: ImageButton = itemView.findViewById(R.id.stopButton)
+        val copyButton: ImageButton = itemView.findViewById(R.id.copyButton)
+        val shareButton: ImageButton = itemView.findViewById(R.id.shareButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AyahViewHolder {
@@ -81,8 +90,24 @@ class AyahAdapter : RecyclerView.Adapter<AyahAdapter.AyahViewHolder>() {
                 isMediaPlayerPrepared = false
             }
         }
-    }
 
+
+        holder.copyButton.setOnClickListener {
+            val clipboard = holder.itemView.context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val textToCopy = "${holder.ayahNumberTextView.text} \n ${holder.ayahArabicTextView.text}\n${holder.ayahEnglishTextView.text}"
+            val clip = ClipData.newPlainText("Ayah Text", textToCopy)
+            clipboard.setPrimaryClip(clip)
+            Toast.makeText(holder.itemView.context, "Ayah copied to clipboard", Toast.LENGTH_SHORT).show()
+        }
+
+        holder.shareButton.setOnClickListener {
+            val shareIntent = Intent(Intent.ACTION_SEND)
+            shareIntent.type = "text/plain"
+            val shareMessage = "${holder.ayahNumberTextView.text} \n ${holder.ayahArabicTextView.text}\n${holder.ayahEnglishTextView.text}"
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+            holder.itemView.context.startActivity(Intent.createChooser(shareIntent, "Share Ayah via"))
+        }
+    }
 
     override fun getItemCount(): Int = ayahs.size
 
@@ -93,7 +118,4 @@ class AyahAdapter : RecyclerView.Adapter<AyahAdapter.AyahViewHolder>() {
         }
         notifyDataSetChanged()
     }
-
-
 }
-

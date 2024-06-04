@@ -49,7 +49,8 @@ class QuranRepository(private val context: Context, private val progressBarCallb
             val arabicResponse = RetrofitInstance.api.getQuranInArabic()
             val englishResponse = RetrofitInstance.api.getQuranInEnglish()
 
-            // QuranMapper'ı istifadə edərək surahların birləşdirilməsi
+
+
             val mergedSurahs = quranMapper.mergeSurahs(arabicResponse, englishResponse)
 
             dataStore.saveQuranData(mergedSurahs)
