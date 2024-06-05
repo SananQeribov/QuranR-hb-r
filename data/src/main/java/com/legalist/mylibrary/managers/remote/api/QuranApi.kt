@@ -4,9 +4,9 @@ import com.legalist.mylibrary.managers.model.QuranResponse
 import retrofit2.http.GET
 
 interface QuranApi {
-    @GET("ar.alafasy")
+    @GET("/host_api/ar.alafasy.json")
     suspend fun getQuranInArabic(): QuranResponse
 
-    @GET("en.asad")
+    @GET("/host_api/en.asad.json")
     suspend fun getQuranInEnglish(): QuranResponse
 }

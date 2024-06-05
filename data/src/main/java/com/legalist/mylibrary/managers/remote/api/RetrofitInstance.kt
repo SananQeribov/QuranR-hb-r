@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
-    private const val BASE_URL = "https://api.alquran.cloud/v1/quran/"
+    private const val BASE_URL = "https://ayazprogrammer.github.io/"
 
     val api: QuranApi by lazy {
         val retrofit = Retrofit.Builder()
