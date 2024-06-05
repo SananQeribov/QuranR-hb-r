@@ -15,3 +15,4 @@ object RetrofitInstance {
         retrofit.create(QuranApi::class.java)
     }
 }
+dd
