@@ -47,11 +47,11 @@ class QuranRepository(private val context: Context, private val progressBarCallb
 
         return try {
             val arabicResponse = RetrofitInstance.api.getQuranInArabic()
-            val englishResponse = RetrofitInstance.api.getQuranInEnglish()
+           // val englishResponse = RetrofitInstance.api.getQuranInEnglish()
 
 
 
-            val mergedSurahs = quranMapper.mergeSurahs(arabicResponse, englishResponse)
+            val mergedSurahs = quranMapper.convertToJSONArray(arabicResponse)
 
             dataStore.saveQuranData(mergedSurahs)
             mergedSurahs

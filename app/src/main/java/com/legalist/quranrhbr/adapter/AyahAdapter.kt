@@ -118,4 +118,7 @@ class AyahAdapter : RecyclerView.Adapter<AyahAdapter.AyahViewHolder>() {
         }
         notifyDataSetChanged()
     }
+    fun getAyahAt(position: Int): JSONObject {
+        return ayahs[position]
+    }
 }
