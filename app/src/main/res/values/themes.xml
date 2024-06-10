@@ -1,10 +1,9 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.QuranRəhbər" parent="Theme.Material3.DayNight.NoActionBar">
-<!--              remove default splash-->
+        <!--               <item name="android:windowIsTranslucent">true</item>          remove default splash-->
 
 
-        <!--  ////////////////////////////////////////////////////      -->
 
 
 
@@ -20,12 +19,12 @@
         <item name="searchIcon">@drawable/ic_search</item>
     </style>
 
-       <style name="Theme.QuranRəhbər" parent="Base.Theme.QuranRəhbər" />
-<!--    <style name="Theme.app.SplashScreen" parent="Theme.SplashScreen">-->
-<!--        <item name="windowSplashScreenBackground">@color/splash_background</item>-->
-<!--        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>-->
-<!--        <item name="postSplashScreenTheme">@style/Base.Theme.QuranRəhbər</item>-->
-<!--    </style>-->
+    <style name="Theme.QuranRəhbər" parent="Base.Theme.QuranRəhbər" />
+    <!--    <style name="Theme.app.SplashScreen" parent="Theme.SplashScreen">-->
+    <!--        <item name="windowSplashScreenBackground">@color/splash_background</item>-->
+    <!--        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>-->
+    <!--        <item name="postSplashScreenTheme">@style/Base.Theme.QuranRəhbər</item>-->
+    <!--    </style>-->
 
 
 </resources>

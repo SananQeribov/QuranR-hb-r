@@ -28,7 +28,6 @@
             android:textAllCaps="false"
             android:text="Help &amp; Support"/>
 
-
         <ToggleButton
             android:id="@+id/toggleThemeButton"
             android:layout_width="wrap_content"
@@ -52,12 +51,24 @@
             android:textAllCaps="false"
             android:text="about"/>
 
-
         <Button
             android:id="@+id/exitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Exit" />
+
+
+        <Switch
+            android:id="@+id/screenOnSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ekranı Açık Tut"
+            android:layout_marginTop="20dp"
+            android:checked="true"
+            android:layout_gravity="center_horizontal"/>
+
+
+
 
     </LinearLayout>
 

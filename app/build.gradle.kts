@@ -137,6 +137,9 @@ dependencies {
     api ( "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9")
     api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 
+    implementation ("com.jakewharton.timber:timber:4.7.1")
+    implementation ("com.otaliastudios:zoomlayout:1.9.0")
+
 
 
 }

@@ -13,14 +13,19 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.legalist.quranrhbr.R
+import com.otaliastudios.zoom.ZoomLayout
 import org.json.JSONArray
 import org.json.JSONObject
 
 class SurahPagerAdapter : RecyclerView.Adapter<SurahPagerAdapter.SurahViewHolder>() {
 
     private val surahs = mutableListOf<JSONObject>()
+    private var ayahPositions = mutableMapOf<Int, Int>()
+
+
 
     inner class SurahViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         val surahNumberTextView: TextView = itemView.findViewById(R.id.surahNumberTextView)
         val surahNameTextView: TextView = itemView.findViewById(R.id.surahNameTextView)
         val surahDetailsTextView: TextView = itemView.findViewById(R.id.surahDetailsTextView)
@@ -29,6 +34,10 @@ class SurahPagerAdapter : RecyclerView.Adapter<SurahPagerAdapter.SurahViewHolder
         val ayahAdapter = AyahAdapter()
         val btnCopy: ImageButton = itemView.findViewById(R.id.btnCopy)
         val btnShare: ImageButton = itemView.findViewById(R.id.btnShare)
+
+
+
+
 
         init {
             ayahRecyclerView.layoutManager = LinearLayoutManager(itemView.context)
@@ -45,7 +54,25 @@ class SurahPagerAdapter : RecyclerView.Adapter<SurahPagerAdapter.SurahViewHolder
                 val surahContent = buildSurahContent(surah)
                 shareContent(itemView.context, surahContent)
             }
+
+            ayahRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+                    val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+                    ayahPositions[adapterPosition] = layoutManager.findFirstVisibleItemPosition()
+                }
+            })
+
+
+
         }
+
+
+
+        fun setCurrentAyahPosition(ayahPosition: Int) {
+            ayahRecyclerView.scrollToPosition(ayahPosition)
+        }
+
 
         private fun buildSurahContent(surah: JSONObject): String {
             val builder = StringBuilder()
@@ -81,6 +108,10 @@ class SurahPagerAdapter : RecyclerView.Adapter<SurahPagerAdapter.SurahViewHolder
         }
     }
 
+
+
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SurahViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_surah, parent, false)
         return SurahViewHolder(view)
@@ -97,7 +128,15 @@ class SurahPagerAdapter : RecyclerView.Adapter<SurahPagerAdapter.SurahViewHolder
         val ayahs = surah.getJSONArray("ayahs")
         holder.ayahCountTextView.text = "Ayah Count: ${ayahs.length()}"
         holder.ayahAdapter.setAyahs(ayahs)
+
+
+
+
+        // Restore the last saved scroll position
+        val lastPosition = ayahPositions[position] ?: 0
+        holder.ayahRecyclerView.scrollToPosition(lastPosition)
     }
+
 
     override fun getItemCount(): Int = surahs.size
 
@@ -108,4 +147,24 @@ class SurahPagerAdapter : RecyclerView.Adapter<SurahPagerAdapter.SurahViewHolder
         }
         notifyDataSetChanged()
     }
+
+    fun getCurrentAyahPosition(surahPosition: Int): Int {
+        return ayahPositions[surahPosition] ?: -1
+    }
+    fun setCurrentAyahPosition(surahPosition: Int, ayahPosition: Int) {
+        ayahPositions[surahPosition] = ayahPosition
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

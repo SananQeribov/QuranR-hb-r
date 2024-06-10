@@ -31,6 +31,19 @@
     <color name="primaryColor">#6200EE</color>
 
 
+    <color name="card_background_light">#FFFFFF</color>
+    <color name="card_background_dark">#2B2B2B</color>
+    <color name="text_color_primary_light">#000000</color>
+    <color name="text_color_primary_dark">#FFFFFF</color>
+    <color name="text_color_secondary_light">#666666</color>
+    <color name="text_color_secondary_dark">#BBBBBB</color>
+
+
+
+
+
+
+
 
 
 </resources>

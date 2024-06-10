@@ -1,16 +1,22 @@
 package com.legalist.quranrhbr.ui.bottomMenu
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.os.PowerManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Switch
 import com.legalist.quranrhbr.Application.MyApplication
+import com.legalist.quranrhbr.R
 import com.legalist.quranrhbr.databinding.FragmentHadisBinding
 import com.legalist.quranrhbr.ui.InfoDialogFragment
 
 class HadisFragment : Fragment() {
     private lateinit var binding: FragmentHadisBinding
+    private var wakeLock: PowerManager.WakeLock? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +61,19 @@ class HadisFragment : Fragment() {
                     "Country refers to: Tamil Nadu, India")
         }
 
+        val screenOnSwitch = binding.root.findViewById<Switch>(R.id.screenOnSwitch)
+
+        // Switch butonunun durumuna göre işlemleri yapma
+        screenOnSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                // Ekranı daima açık tut
+                acquireWakeLock()
+            } else {
+                // Ekranı kapat
+                releaseWakeLock()
+            }
+        }
+
         binding.helpSupport.setOnClickListener {
             showDialog("Help & Support", "For further information about this app\n" +
                     "\n" +
@@ -74,6 +93,16 @@ class HadisFragment : Fragment() {
                     "\n" +
                     "Mohamed Ibrahim J")
         }
+
+    }
+    private fun acquireWakeLock() {
+        val powerManager = requireActivity().getSystemService(Context.POWER_SERVICE) as PowerManager
+        wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK or PowerManager.ACQUIRE_CAUSES_WAKEUP, "YourApp::YourWakeLockTag")
+        wakeLock?.acquire()
+    }
+
+    private fun releaseWakeLock() {
+        wakeLock?.release()
     }
 
     private fun showDialog(title: String, message: String) {

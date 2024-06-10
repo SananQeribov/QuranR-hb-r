@@ -16,8 +16,8 @@ class OnboardingViewModel : ViewModel() {
     )
 
     val pages = listOf(
-        OnboardingPage("Main Text 1", "Sub Text 1", R.drawable.zakat),
-        OnboardingPage("Main Text 2", "Sub Text 2", R.drawable.zikir),
-        OnboardingPage("Main Text 3", "Sub Text 3", R.drawable.namaz_eig)
+        OnboardingPage("Zakat", "Contribute to the community by giving Zakat, a pillar of Islam that purifies your wealth and helps those in need.", R.drawable.zakat),
+        OnboardingPage("Quran", "Illuminate your heart with the divine light and timeless wisdom of the Holy Quran", R.drawable.read),
+        OnboardingPage("Prayer", "Prayer is your sacred connection to Allah. Embrace spiritual tranquility and inner peace with every prostration.", R.drawable.namaz_eig)
     )
 }

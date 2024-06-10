@@ -54,9 +54,9 @@ class SurahAdapter(
         holder.number.text = (position + 1).toString()
         holder.name.text = surah.name
         holder.englishName.text = surah.englishName
-        holder.translation.text = surah.englishNameTranslation
-        holder.ayahsNumber.text = surah.numberOfAyahs.toString()
-        holder.revelationType.text = surah.revelationType
+        holder.translation.text = "Translation: ${surah.englishNameTranslation}"
+        holder.ayahsNumber.text = "Number of Ayahs: ${surah.numberOfAyahs.toString()}"
+        holder.revelationType.text = "Revelaton: ${surah.revelationType}"
         if (position > lastPosition) {
             //TranslateAnimation anim = new TranslateAnimation(0,-1000,0,-1000);
             val anim = ScaleAnimation(

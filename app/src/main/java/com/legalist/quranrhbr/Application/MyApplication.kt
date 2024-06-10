@@ -3,17 +3,19 @@ package com.legalist.quranrhbr.Application
 import android.app.Application
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatDelegate
+import timber.log.Timber
 
 class MyApplication : Application() {
     private lateinit var preferences: SharedPreferences
 
     override fun onCreate() {
         super.onCreate()
+       // Timber.plant(Timber.DebugTree())
+
         preferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
         val isDarkMode = preferences.getBoolean("dark_mode", false)
         setAppTheme(isDarkMode)
     }
-
     fun toggleDarkMode() {
         val isDarkMode = preferences.getBoolean("dark_mode", false)
         val editor = preferences.edit()

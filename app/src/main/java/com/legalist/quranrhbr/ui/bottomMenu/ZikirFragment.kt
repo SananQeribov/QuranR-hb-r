@@ -44,6 +44,7 @@ class ZikirFragment : Fragment() {
                 Log.e("BBBBB", it.toString())
                 binding.recycle.adapter = adapter
                 binding.recycle.visibility = View.VISIBLE
+
             }
         }
 
@@ -51,9 +52,11 @@ class ZikirFragment : Fragment() {
             if (it) {
                 //hata var
                 binding.countryError.visibility = View.VISIBLE
+
             } else {
                 //hata yok
                 binding.countryError.visibility = View.GONE
+
             }
         }
 
@@ -64,7 +67,7 @@ class ZikirFragment : Fragment() {
 //                binding.recycle.visibility = View.GONE
 //                binding.countryError.visibility = View.GONE
 //            } else {
-//                binding.countryLoading.visibility = View.GONE
+//                binding.countryLoading.visibility = View.VISIBLE
 //            }
 //        }
 
