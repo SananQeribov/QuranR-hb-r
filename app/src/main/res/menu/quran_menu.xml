@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/saveButton"
-        android:icon="@drawable/ic_copy"
+        android:icon="@drawable/bookmark_svgrepo_com__1_"
         android:title="Save"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/loadButton"
-        android:icon="@drawable/ic_share"
+        android:icon="@drawable/bookmark_tabs_svgrepo_com"
     android:title="Load"
     app:showAsAction="always" />
 

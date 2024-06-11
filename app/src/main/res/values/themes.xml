@@ -27,4 +27,10 @@
     <!--    </style>-->
 
 
+<!--    <style name="BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">-->
+<!--        &lt;!&ndash; Customize the appearance of BottomNavigationView &ndash;&gt;-->
+<!--        <item name="itemIconTint">@color/selector_nav_item_color</item>-->
+<!--        <item name="itemTextColor">@color/selector_nav_item_color</item>-->
+<!--    </style>-->
+
 </resources>
