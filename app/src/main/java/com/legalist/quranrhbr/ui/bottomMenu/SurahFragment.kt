@@ -1,6 +1,5 @@
 package com.legalist.quranrhbr.ui.bottomMenu
 
-
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -51,9 +50,9 @@ class SurahFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.surahs.collect { surahs ->
                 if (surahs != null) {
-                    adapter = SurahAdapter(surahs) { position ->
+                    adapter = SurahAdapter(surahs) { surahNumber ->
                         val intent = Intent(requireContext(), QuranActivity::class.java).apply {
-                            putExtra("position", position)
+                            putExtra("surah_number", surahNumber-1)
                         }
                         startActivity(intent)
                     }

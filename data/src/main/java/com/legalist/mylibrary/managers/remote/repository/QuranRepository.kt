@@ -5,11 +5,13 @@ import android.content.DialogInterface
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import com.ders.domain.util.ProgressBarCallback
 import com.legalist.mylibrary.managers.api.RetrofitInstance
 import com.legalist.mylibrary.managers.db.QuranDataStore
 import com.legalist.mylibrary.managers.mapper.QuranMapper
+import kotlinx.coroutines.delay
 import org.json.JSONArray
 import org.json.JSONObject
 import retrofit2.HttpException
@@ -24,18 +26,26 @@ class QuranRepository(private val context: Context, private val progressBarCallb
             progressBarCallback.showProgressBar()
             val storedData = dataStore.getQuranData()
             val data = if (storedData != null) {
+                Log.d("sssss","${storedData}")
                 storedData
+
             } else {
+                Log.d("nnnnn","${fetchDataFromRemote()}")
+
                 fetchDataFromRemote()
+
             }
+
             progressBarCallback.hideProgressBar()
             data
         } catch (e: NoInternetException) {
-            progressBarCallback.hideProgressBar()
+            progressBarCallback.showProgressBar()
+            println("xeta bas verdi")
             showNoInternetDialog()
             JSONArray()
         } catch (e: Exception) {
             progressBarCallback.hideProgressBar()
+            println("xeta oldu")
             JSONArray()
         }
     }
@@ -53,11 +63,14 @@ class QuranRepository(private val context: Context, private val progressBarCallb
 
             val mergedSurahs = quranMapper.convertToJSONArray(arabicResponse)
 
+
             dataStore.saveQuranData(mergedSurahs)
             mergedSurahs
         } catch (e: IOException) {
+            e.printStackTrace()
             JSONArray()
         } catch (e: HttpException) {
+            e.printStackTrace()
             JSONArray()
         }
     }

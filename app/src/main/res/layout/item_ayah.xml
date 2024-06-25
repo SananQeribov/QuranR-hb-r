@@ -1,81 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="8dp"
-    android:layout_marginBottom="10dp"
-    android:background="@drawable/gradient">
+    android:layout_marginBottom="2dp"
+    >
 
-    <TextView
-        android:id="@+id/ayahNumberTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_marginBottom="4dp"
-        android:textColor="@android:color/black"/>
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       app:cardCornerRadius="8dp"
+       android:layout_marginBottom="5dp"
+      >
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:background="#0C121931">
+
+           <TextView
+               android:id="@+id/ayahNumberTextView"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="5dp"
+               android:background="@drawable/linearimage"
+               android:textAlignment="center"
+               android:textColor="@android:color/white"
+               android:textSize="18sp"
+               android:textStyle="bold"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <ImageButton
+               android:id="@+id/playButton"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+
+               android:contentDescription="Play"
+               android:src="@drawable/play"
+               android:backgroundTint="@android:color/transparent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toStartOf="@+id/pauseButton"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <ImageButton
+               android:id="@+id/pauseButton"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:contentDescription="Pause"
+               android:backgroundTint="@android:color/transparent"
+               android:src="@drawable/pause_button_svgrepo_com"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toStartOf="@+id/stopButton"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <ImageButton
+               android:id="@+id/stopButton"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:contentDescription="Stop"
+               android:src="@drawable/stop_button_svgrepo_com"
+               app:layout_constraintBottom_toBottomOf="parent"
+               android:visibility="gone"
+               app:layout_constraintEnd_toStartOf="@+id/copyButton"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <ImageButton
+               android:id="@+id/copyButton"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:contentDescription="Copy"
+               android:backgroundTint="@android:color/transparent"
+               android:src="@drawable/copy_enter"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toStartOf="@+id/shareButton"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <ImageButton
+               android:id="@+id/shareButton"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="right"
+               android:contentDescription="Share"
+               android:src="@drawable/sharetext"
+               android:clickable="true"
+               android:backgroundTint="@android:color/transparent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+   </androidx.cardview.widget.CardView>
+
 
     <TextView
         android:id="@+id/ayahArabicTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
+        android:layout_marginTop="2dp"
         android:layout_gravity="end"
-        android:textColor="@android:color/black"/>
+        android:textColor="@color/text_color_primary_light"/>
 
     <TextView
         android:id="@+id/ayahEnglishTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/text_color_primary_light"
         android:paddingTop="4dp" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="4dp">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#BBC4CE59"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
 
-        <ImageButton
-            android:id="@+id/playButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/play_button_svgrepo_com"
-            android:contentDescription="Play" />
 
-        <ImageButton
-            android:id="@+id/pauseButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/pause_button_svgrepo_com"
-            android:contentDescription="Pause"
-            android:layout_marginStart="16dp" />
-
-        <ImageButton
-            android:id="@+id/stopButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/stop_button_svgrepo_com"
-            android:contentDescription="Stop"
-            android:layout_marginStart="16dp" />
-
-        <ImageButton
-            android:id="@+id/copyButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/copy_enter"
-            android:contentDescription="Copy"
-            android:layout_marginStart="16dp" />
-
-        <ImageButton
-            android:id="@+id/shareButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/share12"
-            android:contentDescription="Share"
-            android:layout_marginStart="16dp" />
-    </LinearLayout>
 </LinearLayout>

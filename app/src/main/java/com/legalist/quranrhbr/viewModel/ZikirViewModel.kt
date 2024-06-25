@@ -27,6 +27,8 @@ class ZikirViewModel(application: Application) : BaseViewModel(application) {
     val zikirerror = MutableLiveData<Boolean>()
     val loading = MutableLiveData<Boolean>()
 
+
+
     // Connectivity manager to check for internet connection
     private val connectivityManager =
         application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

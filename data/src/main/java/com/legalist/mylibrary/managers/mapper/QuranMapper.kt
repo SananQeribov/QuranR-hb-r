@@ -1,29 +1,37 @@
 package com.legalist.mylibrary.managers.mapper
 
-
-import android.util.Log
-import com.legalist.mylibrary.managers.model.QuranData
 import com.legalist.mylibrary.managers.model.QuranResponse
 import org.json.JSONArray
 import org.json.JSONObject
 
-
-
-import com.squareup.moshi.JsonAdapter
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.Types
-
-
-
-
 class QuranMapper {
-    private val moshi = Moshi.Builder().build()
-    //private val quranResponseType = Types.newParameterizedType(QuranResponse::class.java, QuranData::class.java)
-
     fun convertToJSONArray(arabicResponse: QuranResponse): JSONArray {
-        val adapter: JsonAdapter<QuranData> = moshi.adapter(QuranData::class.java)
-        val json = adapter.toJson(arabicResponse.data)
-        return JSONArray(json)
+        return JSONArray().apply {
+            arabicResponse.data.surahs.map { surah ->
+                JSONObject().apply {
+                    put("number", surah.number)
+                    put("name", surah.name)
+                    put("englishName", surah.englishName)
+                    put("englishNameTranslation", surah.englishNameTranslation)
+                    put("revelationType", surah.revelationType)
+
+                    val ayahsArray = JSONArray()
+                    surah.ayahs.map { ayah ->
+                        JSONObject().apply {
+                            put("number", ayah.number)
+                            put("textArabic", ayah.textArabic)
+                            put("textEnglish", ayah.textEnglish)
+                            put("audio", ayah.audio)
+                        }
+                    }.forEach { ayahObject ->
+                        ayahsArray.put(ayahObject)
+                    }
+
+                    put("ayahs", ayahsArray)
+                }
+            }.forEach { surahObject ->
+                put(surahObject)
+            }
+        }
     }
 }
-

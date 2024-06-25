@@ -15,12 +15,10 @@ import com.ders.domain.model.Surah
 import com.legalist.quranrhbr.R
 import java.util.Locale
 
-
 class SurahAdapter(
     private val surahList: List<Surah>,
-    private val onItemClick: (position: Int) -> Unit
-) :
-    RecyclerView.Adapter<SurahAdapter.SurahViewHolder>(), Filterable {
+    private val onItemClick: (Int) -> Unit
+) : RecyclerView.Adapter<SurahAdapter.SurahViewHolder>(), Filterable {
 
     private var filteredSurahList: List<Surah> = surahList
     private var lastPosition = -1
@@ -36,7 +34,8 @@ class SurahAdapter(
 
         init {
             view.setOnClickListener {
-                onItemClick.invoke(adapterPosition)
+                val surahNumber = filteredSurahList[adapterPosition].number
+                onItemClick.invoke(surahNumber)
             }
         }
     }
@@ -51,31 +50,22 @@ class SurahAdapter(
         @SuppressLint("RecyclerView") position: Int
     ) {
         val surah = filteredSurahList[position]
-        holder.number.text = (position + 1).toString()
+        holder.number.text = surah.number.toString()
         holder.name.text = surah.name
         holder.englishName.text = surah.englishName
         holder.translation.text = "Translation: ${surah.englishNameTranslation}"
-        holder.ayahsNumber.text = "Number of Ayahs: ${surah.numberOfAyahs.toString()}"
-        holder.revelationType.text = "Revelaton: ${surah.revelationType}"
+        holder.ayahsNumber.text = "Number of Ayahs: ${surah.numberOfAyahs}"
+        holder.revelationType.text = "Revelation: ${surah.revelationType}"
+
         if (position > lastPosition) {
-            //TranslateAnimation anim = new TranslateAnimation(0,-1000,0,-1000);
             val anim = ScaleAnimation(
-                0.0f,
-                1.0f,
-                0.0f,
-                1.0f,
-                Animation.RELATIVE_TO_SELF,
-                0.5f,
-                Animation.RELATIVE_TO_SELF,
-                0.5f
+                0.0f, 1.0f, 0.0f, 1.0f,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f
             )
-            //anim.setDuration(new Random().nextInt(501));//to make duration random number between [0,501)
-            anim.duration = 550 //to make duration random number between [0,501)
+            anim.duration = 550
             holder.cardview.startAnimation(anim)
             lastPosition = position
-        }
-        holder.itemView.setOnClickListener {
-            onItemClick(position)
         }
     }
 
@@ -91,14 +81,11 @@ class SurahAdapter(
                 if (constraint.isNullOrBlank()) {
                     filteredResults.addAll(surahList)
                 } else {
-                    val filterPattern =
-                        constraint.toString().trim().toLowerCase(Locale.getDefault())
+                    val filterPattern = constraint.toString().trim().toLowerCase(Locale.getDefault())
                     for (item in surahList) {
                         if (item.name.toLowerCase(Locale.getDefault()).contains(filterPattern) ||
-                            item.englishName.toLowerCase(Locale.getDefault())
-                                .contains(filterPattern) ||
-                            item.englishNameTranslation.toLowerCase(Locale.getDefault())
-                                .contains(filterPattern)
+                            item.englishName.toLowerCase(Locale.getDefault()).contains(filterPattern) ||
+                            item.englishNameTranslation.toLowerCase(Locale.getDefault()).contains(filterPattern)
                         ) {
                             filteredResults.add(item)
                         }

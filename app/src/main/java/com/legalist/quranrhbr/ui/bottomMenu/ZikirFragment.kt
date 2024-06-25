@@ -60,16 +60,16 @@ class ZikirFragment : Fragment() {
             }
         }
 
-//        viewModel.loading.observe(viewLifecycleOwner) {
-//            if (it) {
-//                //yükleniyor
-//                binding.countryLoading.visibility = View.VISIBLE
-//                binding.recycle.visibility = View.GONE
-//                binding.countryError.visibility = View.GONE
-//            } else {
-//                binding.countryLoading.visibility = View.VISIBLE
-//            }
-//        }
+        viewModel.loading.observe(viewLifecycleOwner) {
+            if (it) {
+                //yükleniyor
+                binding.countryLoading.visibility = View.VISIBLE
+                binding.recycle.visibility = View.GONE
+                binding.countryError.visibility = View.GONE
+            } else {
+                binding.countryLoading.visibility = View.VISIBLE
+            }
+        }
 
     }
 

@@ -35,9 +35,7 @@ class SplashFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val viewModel = ViewModelProvider(requireActivity()).get(SplashScreenViewModel::class.java)
+        val viewModel = ViewModelProvider(requireActivity())[SplashScreenViewModel::class.java]
         viewModel.navigateToNextFragment(findNavController())
-
     }
-
 }
